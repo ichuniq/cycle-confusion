@@ -127,9 +127,6 @@ class SSRCNN(nn.Module):
 
                 for i in range(len(self.ss_head)):
                     head = getattr(self, "ss_head_{}".format(i))
-                    # print("====================")
-                    # print("head: {}".format(head))
-                    # print("====================")
                     if head.input != "ROI":
                         continue
                     # during training, the paired of inputs are put in one batch

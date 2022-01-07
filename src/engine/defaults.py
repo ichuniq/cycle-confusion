@@ -321,7 +321,7 @@ class DefaultTrainer(SimpleTrainer):
 
     def run_step(self):
         """
-        Overwrite run_step from parent for UDA training logic
+        Override run_step from parent for UDA training logic
         """
         loss_dict = {}
 
@@ -526,6 +526,8 @@ class DefaultTrainer(SimpleTrainer):
         """
 
         dataloader = build_detection_train_loader(cfg, mapper=None, domain=domain)
+
+        # For cyc-conf video sequence data only
         if cfg.DATALOADER.SAMPLER_TRAIN == "PairTrainingSampler":
             dataloader = PairDataLoader(cfg, dataloader)
         return dataloader
